@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>60 Carruseles Instagram - Mario Cañadas Varela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #003b5c;
+            --secondary: #00a8e8;
+            --white: #ffffff;
+            --text-gray: #4a4a4a;
+            --border-light: #eaeaea;
+            --alert: #c62828;
+            --fun: #f39c12;
+            --green: #27ae60;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #e5e5e5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 0;
+            font-family: 'Open Sans', sans-serif;
+            gap: 40px;
+        }
+        .slide {
+            width: 1080px;
+            height: 1080px;
+            background: var(--white);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 100px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .slide.dark {
+            background: var(--primary);
+        }
+        .slide.accent {
+            background: var(--secondary);
+        }
+        .separator {
+            width: 1080px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-gray);
+            margin: 20px 0 10px;
+            font-family: 'Montserrat', sans-serif;
+            background: #ccc;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        .slide-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: auto;
+        }
+        .tag-dot {
+            width: 16px;
+            height: 16px;
+            background: var(--secondary);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .tag-dot.alert { background: var(--alert); }
+        .tag-dot.fun { background: var(--fun); }
+        .tag-dot.green { background: var(--green); }
+        .tag-dot.white { background: #fff; }
+        .tag-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .tag-text.white { color: #fff; }
+        .slide-body { margin-bottom: auto; }
+        .main-headline {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 95px;
+            line-height: 1;
+            color: var(--primary);
+            letter-spacing: -3px;
+            margin-bottom: 40px;
+        }
+        .main-headline.white { color: #fff; }
+        .main-headline span { color: var(--secondary); }
+        .main-headline .alert-text { color: var(--alert); }
+        .main-headline .fun-text { color: var(--fun); }
+        .main-headline .green-text { color: var(--green); }
+        .main-headline.white span { color: var(--fun); }
+        .sub-headline {
+            font-size: 42px;
+            color: var(--text-gray);
+            line-height: 1.4;
+            font-weight: 400;
+            max-width: 95%;
+        }
+        .sub-headline.white { color: rgba(255,255,255,0.85); }
+        .explanation {
+            font-size: 36px;
+            color: var(--text-gray);
+            line-height: 1.5;
+            font-weight: 400;
+            max-width: 95%;
+        }
+        .explanation.white { color: rgba(255,255,255,0.9); }
+        .slide-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 50px;
+            border-top: 2px solid var(--border-light);
+        }
+        .slide-footer.dark-border { border-top-color: rgba(255,255,255,0.2); }
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-image: url('https://mariocanadasvarela-bit.github.io/seguros/perfil.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 3px solid var(--secondary);
+            flex-shrink: 0;
+        }
+        .author-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary);
+        }
+        .author-info h3.white { color: #fff; }
+        .author-info p {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+        .author-info p.white { color: rgba(255,255,255,0.7); }
+        .swipe-icon {
+            font-size: 40px;
+            color: var(--secondary);
+            background: rgba(0,168,232,0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .swipe-icon.white {
+            color: #fff;
+            background: rgba(255,255,255,0.2);
+        }
+        .cta-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 36px;
+            color: var(--secondary);
+            margin-top: 30px;
+        }
+        .cta-text.white { color: var(--fun); }
+        .cta-text.green { color: var(--green); }
+        .hashtag-line {
+            margin-top: 30px;
+            font-size: 22px;
+            color: #aaa;
+            letter-spacing: 0.5px;
+        }
+        .hashtag-line.white { color: rgba(255,255,255,0.4); }
+        .big-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 200px;
+            color: var(--secondary);
+            line-height: 1;
+            opacity: 0.15;
+            position: absolute;
+            right: 60px;
+            top: 60px;
+        }
+        .big-number.dark { color: #fff; }
+        .checklist {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .checklist li {
+            font-size: 34px;
+            color: var(--text-gray);
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .checklist li.white { color: rgba(255,255,255,0.9); border-bottom-color: rgba(255,255,255,0.15); }
+        .checklist li i { color: var(--secondary); font-size: 30px; flex-shrink: 0; }
+        .checklist li i.fun { color: var(--fun); }
+        .checklist li i.alert { color: var(--alert); }
+        .checklist li i.green { color: var(--green); }
+        .highlight-box {
+            background: rgba(0,168,232,0.08);
+            border-left: 6px solid var(--secondary);
+            padding: 30px 40px;
+            border-radius: 0 16px 16px 0;
+            margin-top: 30px;
+        }
+        .highlight-box p {
+            font-size: 34px;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        .highlight-box.alert-box {
+            background: rgba(198,40,40,0.07);
+            border-left-color: var(--alert);
+        }
+        .highlight-box.alert-box p { color: var(--alert); }
+        .highlight-box.fun-box {
+            background: rgba(243,156,18,0.08);
+            border-left-color: var(--fun);
+        }
+        .highlight-box.fun-box p { color: #b7770d; }
+        .steps {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+        }
+        .step-num {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .step-num.fun { background: var(--fun); }
+        .step-num.alert { background: var(--alert); }
+        .step-num.green { background: var(--green); }
+        .step-text {
+            font-size: 32px;
+            color: var(--text-gray);
+            line-height: 1.4;
+            padding-top: 10px;
+        }
+        .step-text.white { color: rgba(255,255,255,0.9); }
+        .deco-line {
+            width: 80px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+        .deco-line.fun { background: var(--fun); }
+        .deco-line.alert { background: var(--alert); }
+        .vs-box {
+            display: flex;
+            gap: 0;
+            margin-top: 30px;
+        }
+        .vs-col {
+            flex: 1;
+            padding: 30px;
+            border-radius: 16px;
+        }
+        .vs-col.bad {
+            background: rgba(198,40,40,0.07);
+            border: 2px solid rgba(198,40,40,0.2);
+            margin-right: 10px;
+        }
+        .vs-col.good {
+            background: rgba(39,174,96,0.07);
+            border: 2px solid rgba(39,174,96,0.2);
+        }
+        .vs-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 26px;
+            margin-bottom: 16px;
+        }
+        .vs-label.bad { color: var(--alert); }
+        .vs-label.good { color: var(--green); }
+        .vs-text { font-size: 28px; color: var(--text-gray); line-height: 1.4; }
+        .emoji-big { font-size: 120px; line-height: 1; margin-bottom: 30px; display: block; }
+        .pill {
+            display: inline-block;
+            background: var(--secondary);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 26px;
+            padding: 10px 28px;
+            border-radius: 50px;
+            margin: 6px 4px;
+        }
+        .pill.fun { background: var(--fun); }
+        .pill.alert { background: var(--alert); }
+        .pill.green { background: var(--green); }
+        .pill.outline {
+            background: transparent;
+            border: 3px solid var(--secondary);
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== CARRUSEL 1 (3 slides): Qué hace un Productor Asesor ==================== -->
+<div class="separator">⚫ CARRUSEL 1/60 — ¿Qué hace un Productor Asesor de Seguros? ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">¿SABÍAS QUE...?</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">NO TODOS LOS QUE VENDEN SEGUROS SON <span>LO MISMO</span></h1>
+        <p class="sub-headline">Hay una diferencia enorme entre un vendedor de seguros y un Productor Asesor matriculado. Deslizá y entendé por qué importa.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">LA DIFERENCIA</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <div class="vs-box">
+            <div class="vs-col bad">
+                <div class="vs-label bad">❌ Vendedor común</div>
+                <div class="vs-text">Te ofrece lo que tiene. Su objetivo: vender. No analiza tus riesgos reales.</div>
+            </div>
+            <div class="vs-col good">
+                <div class="vs-label good">✅ Productor Asesor</div>
+                <div class="vs-text">Analiza tu situación, te asesora de forma independiente y negocia con varias aseguradoras.</div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">ACCIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:75px;">TRABAJÁ CON ALGUIEN QUE <span>TRABAJE PARA VOS</span></h1>
+        <p class="explanation">Matrícula SSN N° 101290. Asesoramiento sin costo, sin compromiso.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#ProductorAsesor #SegurosArgentina #SanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 2 (4 slides): Seguro de Auto — coberturas ==================== -->
+<div class="separator">⚫ CARRUSEL 2/60 — Las coberturas del seguro de auto explicadas ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">EDUCACIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">¿SABÉS QUÉ CUBRE TU <span>SEGURO DE AUTO</span>?</h1>
+        <p class="sub-headline">La mayoría paga sin saber qué está comprando. En 4 slides te lo explico todo.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">COBERTURA BÁSICA</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <h1 class="main-headline" style="font-size:72px;">RESPONSABILIDAD <span>CIVIL</span></h1>
+        <p class="explanation">La mínima legal. Cubre los daños que le hacés a terceros (personas y autos ajenos). No cubre tu propio vehículo si tenés un accidente.</p>
+        <div class="highlight-box alert-box"><p>⚠️ Si el accidente lo causás vos, tu auto queda sin cobertura.</p></div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">MÁS COBERTURA</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:72px;">TERCEROS <span>COMPLETO</span></h1>
+        <p class="explanation">Agrega robo total, incendio y daños parciales. La opción más elegida porque equilibra precio y protección real.</p>
+        <div class="highlight-box"><p>💡 Ideal para autos de 3 a 8 años de antigüedad.</p></div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">TODO RIESGO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">TODO RIESGO <span>= MÁXIMA TRANQUILIDAD</span></h1>
+        <p class="explanation">Cubre todo lo anterior más daños propios aunque seas vos el culpable. Recomendado para autos nuevos o de alta gama.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> Consultame cuál te conviene: 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#SeguroAuto #Coberturas #SanJuan #Seguros</div>
+</div>
+
+<!-- ==================== CARRUSEL 3 (3 slides): Mito del seguro caro ==================== -->
+<div class="separator">⚫ CARRUSEL 3/60 — "El seguro es caro" — el mito más costoso ⚫</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">MITO VS REALIDAD</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white">"EL SEGURO ES <span>CARO</span>"</h1>
+        <p class="sub-headline white">Este es el error más costoso que puede cometer una persona. Deslizá y entendé por qué.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon white"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text white">LA REALIDAD</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <h1 class="main-headline white" style="font-size:70px;">CARO ES <span>NO TENERLO</span></h1>
+        <p class="explanation white">Un siniestro sin seguro puede costarte desde $500.000 hasta millones de pesos. El seguro mensual es una fracción de eso.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">ACCIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white" style="font-size:72px;">PASAME TU PÓLIZA Y <span>TE LA MEJORO</span></h1>
+        <p class="explanation white">Revisá si estás pagando de más. Sin costo. Sin compromiso. Comparamos con las mejores aseguradoras.</p>
+        <div class="cta-text white"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line white">#MitoDelSeguro #AhorráEnSeguros #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 4 (5 slides): Seguro de hogar paso a paso ==================== -->
+<div class="separator">⚫ CARRUSEL 4/60 — Seguro de hogar: todo lo que necesitás saber ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">HOGAR</div></div>
+    <div class="slide-body">
+        <span class="emoji-big">🏠</span>
+        <h1 class="main-headline" style="font-size:80px;">TU CASA ES TU BIEN <span>MÁS VALIOSO</span></h1>
+        <p class="sub-headline">¿La tenés asegurada como corresponde? En 5 slides te enseño todo sobre el seguro de hogar.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">¿QUÉ CUBRE?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Incendio y explosión</li>
+            <li><i class="fa-solid fa-check-circle"></i> Robo de contenidos</li>
+            <li><i class="fa-solid fa-check-circle"></i> Daños por agua y granizo</li>
+            <li><i class="fa-solid fa-check-circle"></i> Responsabilidad civil hacia terceros</li>
+            <li><i class="fa-solid fa-check-circle"></i> Cristales y vidrios</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">¡OJO CON ESTO!</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <h1 class="main-headline" style="font-size:70px;">EL ERROR MÁS COMÚN: <span class="alert-text">INFRAASEGURAR</span></h1>
+        <p class="explanation">Declarar un valor menor al real para pagar menos. Si sufrís un siniestro, la aseguradora paga solo la proporción que declaraste. Terminás perdiendo.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">CONSEJO PRO</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <h1 class="main-headline" style="font-size:70px;">ASEGURÁ <span>ESTRUCTURA Y CONTENIDO</span> POR SEPARADO</h1>
+        <p class="explanation">La estructura es la obra civil. El contenido son tus muebles, electrodomésticos y objetos. Muchas pólizas cubren solo uno. Verificá la tuya.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">ACCIÓN HOY</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">COTIZÁ TU SEGURO DE <span>HOGAR HOY</span></h1>
+        <p class="explanation">Trabajo con Federación Patronal, La Segunda, Mercantil Andina y más. Te consigo la mejor relación precio-cobertura.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#SeguroHogar #ProtegéTuCasa #SanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 5 (3 slides): ¿Cuándo usar la franquicia? ==================== -->
+<div class="separator">⚫ CARRUSEL 5/60 — Franquicia: cuándo conviene usarla y cuándo no ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">DATO CLAVE</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">LA <span>FRANQUICIA</span> NO ES LO QUE CREÉS</h1>
+        <p class="sub-headline">Mucha gente evita usarla por miedo a que le suba el seguro. Pero no siempre es así. Deslizá y entendé cómo funciona.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">¿QUÉ ES?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:72px;">ES EL MONTO <span>QUE VOS PAGÁS</span> PRIMERO</h1>
+        <p class="explanation">Cuando hacés un siniestro, la franquicia es la parte que absorbés vos. La aseguradora cubre el resto. Cuanto más alta la franquicia, más barata la póliza.</p>
+        <div class="highlight-box"><p>💡 Conviene usar la cobertura solo para siniestros grandes. Los pequeños arreglalos por tu cuenta.</p></div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">CONSEJO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:70px;">¿TENÉS DUDAS SOBRE TU <span>PÓLIZA</span>?</h1>
+        <p class="explanation">Te la explico sin vueltas. Entendé lo que estás pagando y si realmente te conviene.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#Franquicia #SeguroAuto #ConsejosDeSeguros</div>
+</div>
+
+<!-- ==================== CARRUSEL 6 (4 slides): Seguro para comercio/empresa ==================== -->
+<div class="separator">⚫ CARRUSEL 6/60 — ¿Tenés un negocio? Esto necesitás asegurar ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">EMPRESAS</div></div>
+    <div class="slide-body">
+        <span class="emoji-big">🏪</span>
+        <h1 class="main-headline" style="font-size:80px;">TU NEGOCIO GENERA INGRESOS. <span>¿LO PROTEGÉS?</span></h1>
+        <p class="sub-headline">Un incendio, un robo o una demanda puede cerrar tu comercio para siempre. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">RIESGOS REALES</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-fire alert"></i> Incendio total o parcial del local</li>
+            <li><i class="fa-solid fa-mask alert"></i> Robo de mercadería y equipos</li>
+            <li><i class="fa-solid fa-gavel alert"></i> Demandas de clientes o empleados</li>
+            <li><i class="fa-solid fa-bolt alert"></i> Daño eléctrico a maquinaria</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">SOLUCIÓN</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:72px;">SEGURO INTEGRAL DE <span>COMERCIO</span></h1>
+        <p class="explanation">Una sola póliza puede cubrir el local, la mercadería, la responsabilidad civil, los empleados y más. Diseñada a medida de tu negocio.</p>
+        <div class="highlight-box"><p>💼 Trabajamos con Federación Patronal, Mercantil Andina y más líderes del mercado.</p></div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">EMPEZÁ HOY</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">PROTEGÉ LO QUE <span>CONSTRUISTE</span></h1>
+        <p class="explanation">Analizamos los riesgos de tu comercio sin costo. Te diseñamos un programa a medida.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#SeguroComercio #SegurosEmpresa #SanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 7 (3 slides): Cómo mejorar tu póliza actual ==================== -->
+<div class="separator">⚫ CARRUSEL 7/60 — Mejorá tu póliza actual en 3 pasos ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">CONSEJO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">¿CUÁNDO FUE LA ÚLTIMA VEZ QUE <span>REVISASTE</span> TU SEGURO?</h1>
+        <p class="sub-headline">Si no lo recordás, es momento de hacerlo. Te enseño cómo en 3 pasos simples.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">3 PASOS</div></div>
+    <div class="slide-body">
+        <div class="steps">
+            <div class="step"><div class="step-num">1</div><div class="step-text">Buscá la carátula de tu póliza (o el PDF que te mandaron).</div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-text">Fijate qué coberturas tenés y si el valor asegurado es el actual de tu bien.</div></div>
+            <div class="step"><div class="step-num fun">3</div><div class="step-text">Mandámela por WhatsApp. La comparo sin costo y te digo si podés mejorar.</div></div>
+        </div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">¡MANDALA YA!</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">AHORRO GARANTIZADO O <span>MEJOR COBERTURA</span></h1>
+        <p class="explanation">Si encontramos algo mejor, te lo decimos. Si no, al menos sabés que estás bien cubierto.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#MejoraTuSeguro #AhorráEnSeguros #PólizaMejor</div>
+</div>
+
+<!-- ==================== CARRUSEL 8 (4 slides): ART para empleados ==================== -->
+<div class="separator">⚫ CARRUSEL 8/60 — ART: lo que todo empleador necesita saber ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">IMPORTANTE</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">SI TENÉS EMPLEADOS Y NO TENÉS <span class="alert-text">ART</span>, ESTÁS EN RIESGO</h1>
+        <p class="sub-headline">La Aseguradora de Riesgos del Trabajo no es opcional. Es obligatoria por ley. Deslizá y entendé por qué.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">¿QUÉ ES EL ART?</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <h1 class="main-headline" style="font-size:70px;">PROTEGE A TUS <span>EMPLEADOS</span> EN EL TRABAJO</h1>
+        <p class="explanation">Cubre accidentes laborales, enfermedades profesionales, atención médica, indemnizaciones y más. Si un empleado se accidenta y no tenés ART, respondés con tu patrimonio.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">¿QUIÉN NECESITA?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Comercios con personal en relación de dependencia</li>
+            <li><i class="fa-solid fa-check-circle"></i> Empresas de cualquier tamaño</li>
+            <li><i class="fa-solid fa-check-circle"></i> Empleados domésticos (también aplica)</li>
+            <li><i class="fa-solid fa-check-circle"></i> Monotributistas con empleados a cargo</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">LO RESOLVEMOS</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">TE AYUDO A CONTRATAR <span>EL ART</span> CORRECTO</h1>
+        <p class="explanation">Comparamos las mejores opciones del mercado. Proceso simple y rápido.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#ART #RiesgosTrabajo #SegurosEmpresa #SanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 9 (3 slides): La Segunda Seguros ==================== -->
+<div class="separator">⚫ CARRUSEL 9/60 — ¿Por qué trabajamos con La Segunda? ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">NUESTRAS COMPAÑÍAS</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">¿QUÉ HAY DETRÁS DE TU <span>PÓLIZA</span>?</h1>
+        <p class="sub-headline">No todas las aseguradoras son iguales. Las compañías con las que trabajo fueron elegidas por su solvencia, rapidez y respaldo real. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">MIS COMPAÑÍAS</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-shield-halved"></i> <strong>La Segunda</strong> — Lider en el mercado argentino</li>
+            <li><i class="fa-solid fa-shield-halved"></i> <strong>Federación Patronal</strong> — Solidez y cobertura amplia</li>
+            <li><i class="fa-solid fa-shield-halved"></i> <strong>Mercantil Andina</strong> — Especialista en la región</li>
+            <li><i class="fa-solid fa-shield-halved"></i> <strong>CNP Seguros</strong> — Respaldo internacional</li>
+            <li><i class="fa-solid fa-shield-halved"></i> <strong>Aseg. de Cauciones</strong> — Garantías y fianzas</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">MI TRABAJO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">NEGOCIO POR VOS CON <span>LOS MEJORES</span></h1>
+        <p class="explanation">Mi trabajo es comparar y conseguirte las mejores condiciones. Vos elegís, yo te asesoro.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#LaSegunda #FederaciónPatronal #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 10 (4 slides): 5 preguntas antes de contratar ==================== -->
+<div class="separator">⚫ CARRUSEL 10/60 — 5 preguntas que debés hacerte antes de contratar un seguro ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">CHECKLIST</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">ANTES DE FIRMAR, <span>PREGUNTÁ ESTO</span></h1>
+        <p class="sub-headline">El 80% de los conflictos con seguros se evitan haciendo las preguntas correctas antes de contratar. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">PREGUNTAS 1 Y 2</div></div>
+    <div class="slide-body">
+        <div class="steps">
+            <div class="step"><div class="step-num">1</div><div class="step-text"><strong>¿Qué no cubre esta póliza?</strong> Las exclusiones son lo más importante.</div></div>
+            <div class="step"><div class="step-num">2</div><div class="step-text"><strong>¿Cómo es el proceso de siniestro?</strong> ¿Cuánto tarda? ¿Qué documentación necesito?</div></div>
+        </div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">PREGUNTAS 3, 4 Y 5</div></div>
+    <div class="slide-body">
+        <div class="steps">
+            <div class="step"><div class="step-num fun">3</div><div class="step-text"><strong>¿Cuál es la franquicia?</strong> ¿Cuánto pago yo ante un siniestro?</div></div>
+            <div class="step"><div class="step-num fun">4</div><div class="step-text"><strong>¿El valor asegurado está actualizado?</strong> La inflación devalúa las coberturas.</div></div>
+            <div class="step"><div class="step-num fun">5</div><div class="step-text"><strong>¿Puedo cancelar?</strong> ¿Qué pasa si cambio de aseguradora antes del vencimiento?</div></div>
+        </div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">YO TE LAS RESPONDO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">SIN LETRA CHICA, <span>SIN VUELTAS</span></h1>
+        <p class="explanation">Te explico cada detalle antes de que firmes. Mi trabajo es que entiendas lo que estás contratando.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#ContrataréBien #SegurosArgentina #ConsejosSeguro</div>
+</div>
+
+<!-- ==================== CARRUSEL 11 (3 slides): Seguro de moto ==================== -->
+<div class="separator">⚫ CARRUSEL 11/60 — Seguro de moto: lo mínimo que debés saber ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">¡ATENCIÓN MOTEROS!</div></div>
+    <div class="slide-body">
+        <span class="emoji-big">🏍️</span>
+        <h1 class="main-headline" style="font-size:80px;">TU MOTO TIENE MÁS RIESGO <span>QUE UN AUTO</span></h1>
+        <p class="sub-headline">Las motos son las más robadas y las que más accidentes tienen. ¿Tenés la cobertura correcta?</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">¿QUÉ NECESITÁS?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> RC obligatoria por ley</li>
+            <li><i class="fa-solid fa-check-circle"></i> Robo total (muy frecuente en motos)</li>
+            <li><i class="fa-solid fa-check-circle"></i> Daños parciales por caída</li>
+            <li><i class="fa-solid fa-check-circle green"></i> Asistencia al viajero en ruta</li>
+        </ul>
+        <div class="highlight-box alert-box" style="margin-top:30px;"><p>⚠️ El robo parcial de accesorios también puede cubrirse. Consultá.</p></div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">COTIZÁ AHORA</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">SEGURO DE MOTO <span>A TU MEDIDA</span></h1>
+        <p class="explanation">Desde coberturas básicas hasta todo riesgo. Comparo varias compañías y te traigo la mejor opción.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#SeguroMoto #MotoSegura #SanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 12 (4 slides): Inflación y seguros ==================== -->
+<div class="separator">⚫ CARRUSEL 12/60 — La inflación destruye tu cobertura sin que te des cuenta ⚫</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text white">ALERTA</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white">LA INFLACIÓN <span>TAMBIÉN AFECTA</span> TU SEGURO</h1>
+        <p class="sub-headline white">Tu póliza puede quedar desactualizada sin que nadie te avise. Deslizá y entendé cómo protegerte.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon white"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text white">EL PROBLEMA</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <h1 class="main-headline white" style="font-size:70px;">TU AUTO VALE <span>MÁS</span> QUE ANTES. ¿TU SEGURO LO SABE?</h1>
+        <p class="explanation white">Si el valor asegurado no se actualiza, ante un robo o siniestro total te pagan el valor viejo. Perdés la diferencia.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text white">LA SOLUCIÓN</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <h1 class="main-headline white" style="font-size:70px;">PEDÍ <span>ACTUALIZACIÓN</span> DE SUMA ASEGURADA</h1>
+        <p class="explanation white">Muchas pólizas tienen cláusulas de ajuste automático. Si la tuya no las tiene, hay que modificarla. Es simple y muchas veces no cambia el precio.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">ACCIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white" style="font-size:72px;">REVISÁ TU PÓLIZA <span>HOY</span></h1>
+        <p class="explanation white">Te ayudo a actualizar tus coberturas sin trámites complicados. Un mensaje y lo resolvemos.</p>
+        <div class="cta-text white"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line white">#InflaciónYSeguros #ActualizáTuPóliza #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 13 (3 slides): Caución/garantía de alquiler ==================== -->
+<div class="separator">⚫ CARRUSEL 13/60 — Seguro de caución: la alternativa al garante ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">¿ALQUILÁS?</div></div>
+    <div class="slide-body">
+        <span class="emoji-big">🔑</span>
+        <h1 class="main-headline" style="font-size:75px;">¿NO CONSEGUÍS <span>GARANTE</span>? HAY SOLUCIÓN</h1>
+        <p class="sub-headline">El seguro de caución reemplaza al garante y simplifica el alquiler para propietarios e inquilinos.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">¿CÓMO FUNCIONA?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> El inquilino contrata la póliza (sin garante propietario)</li>
+            <li><i class="fa-solid fa-check-circle"></i> La aseguradora garantiza el pago al propietario</li>
+            <li><i class="fa-solid fa-check-circle"></i> Si hay incumplimiento, la compañía responde</li>
+            <li><i class="fa-solid fa-check-circle green"></i> Proceso ágil, sin trámites largos</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">CONSULTAME</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">CAUCIÓN DE ALQUILER RÁPIDA Y <span>SIMPLE</span></h1>
+        <p class="explanation">Trabajo con Aseguradores de Cauciones. Tramitamos todo de forma ágil para que puedas alquilar sin problemas.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#SeguroCaución #Alquiler #SinGarante #SanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 14 (4 slides): Qué hacer ante un siniestro ==================== -->
+<div class="separator">⚫ CARRUSEL 14/60 — ¿Qué hacer si tenés un accidente? Guía paso a paso ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">GUÍA URGENTE</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">TUVISTE UN <span class="alert-text">ACCIDENTE</span>. ¿QUÉ HACÉS?</h1>
+        <p class="sub-headline">Los primeros minutos definen si tu seguro te cubre bien o mal. Deslizá y guardá esta guía.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">PASO 1 Y 2</div></div>
+    <div class="slide-body">
+        <div class="steps">
+            <div class="step"><div class="step-num alert">1</div><div class="step-text"><strong>No muevas el vehículo.</strong> Documentá la escena con fotos antes de cualquier movimiento.</div></div>
+            <div class="step"><div class="step-num alert">2</div><div class="step-text"><strong>Pedí datos al otro conductor:</strong> DNI, patente, compañía de seguros y número de póliza.</div></div>
+        </div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">PASO 3 Y 4</div></div>
+    <div class="slide-body">
+        <div class="steps">
+            <div class="step"><div class="step-num fun">3</div><div class="step-text"><strong>Llamá a tu aseguradora</strong> o a mí directamente para iniciar el siniestro de inmediato.</div></div>
+            <div class="step"><div class="step-num fun">4</div><div class="step-text"><strong>No firmes nada</strong> ni llegues a ningún acuerdo económico sin consultar antes con tu asesor.</div></div>
+        </div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">ESTOY PARA VOS</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">ANTE UN SINIESTRO <span>LLAMAME PRIMERO</span></h1>
+        <p class="explanation">Te acompaño en todo el proceso. Desde la denuncia hasta el cobro. No estás solo.</p>
+        <div class="cta-text green"><i class="fa-solid fa-phone"></i> +54 9 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#QuéHacerAnteUnAccidente #Siniestro #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 15 (3 slides): Seguro de vida ==================== -->
+<div class="separator">⚫ CARRUSEL 15/60 — El seguro de vida: no es para vos, es para los que amás ⚫</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">REFLEXIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white">EL SEGURO DE VIDA NO ES <span>PARA VOS</span></h1>
+        <p class="sub-headline white">Es para tu familia cuando vos no estés. Deslizá y pensalo diferente.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon white"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">¿QUÉ CUBRE?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li class="white"><i class="fa-solid fa-heart" style="color:var(--fun)"></i> Capital de fallecimiento para tu familia</li>
+            <li class="white"><i class="fa-solid fa-wheelchair" style="color:var(--fun)"></i> Incapacidad total y permanente</li>
+            <li class="white"><i class="fa-solid fa-hospital" style="color:var(--fun)"></i> Enfermedades graves (según póliza)</li>
+            <li class="white"><i class="fa-solid fa-piggy-bank" style="color:var(--fun)"></i> Algunos tienen componente de ahorro</li>
+        </ul>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">ACCIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white" style="font-size:72px;">PROTEGÉ A LOS QUE MÁS <span>QUERÉS</span></h1>
+        <p class="explanation white">Hay opciones para todos los presupuestos. Te asesoro sin compromiso.</p>
+        <div class="cta-text white"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line white">#SeguroDeVida #FamiliaPrimero #Protección</div>
+</div>
+
+<!-- ==================== CARRUSEL 16 (4 slides): Diagnóstico de riesgos ==================== -->
+<div class="separator">⚫ CARRUSEL 16/60 — ¿Tenés todos tus riesgos cubiertos? Hacé el diagnóstico ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">DIAGNÓSTICO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">¿CUÁNTOS DE TUS <span>RIESGOS</span> ESTÁN CUBIERTOS?</h1>
+        <p class="sub-headline">La mayoría de las personas tiene solo 1 o 2 seguros activos. Pero los riesgos son muchos más. Deslizá y chequeá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">CHECKLIST PERSONAL</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-car"></i> Auto o moto asegurados</li>
+            <li><i class="fa-solid fa-house"></i> Hogar con cobertura real</li>
+            <li><i class="fa-solid fa-heart-pulse"></i> Salud o prepaga activa</li>
+            <li><i class="fa-solid fa-user-shield"></i> Seguro de vida o accidentes</li>
+            <li><i class="fa-solid fa-briefcase"></i> Responsabilidad civil personal</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">CHECKLIST EMPRESARIAL</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-store fun"></i> Comercio o local cubierto</li>
+            <li><i class="fa-solid fa-people-group fun"></i> ART para empleados</li>
+            <li><i class="fa-solid fa-truck fun"></i> Flota de vehículos</li>
+            <li><i class="fa-solid fa-gavel fun"></i> Responsabilidad civil patronal</li>
+            <li><i class="fa-solid fa-boxes-stacked fun"></i> Mercadería e inventario</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">HACÉ EL DIAGNÓSTICO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">IDENTIFICO TUS RIESGOS Y <span>TE LOS CUBRO</span></h1>
+        <p class="explanation">Reunión de diagnóstico sin costo. Analizamos tu situación y diseñamos un plan a medida.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#DiagnósticoDeRiesgos #SegurosIntegrales #SanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 17 (3 slides): Robo de auto ==================== -->
+<div class="separator">⚫ CARRUSEL 17/60 — Te robaron el auto: ¿qué cubre realmente tu seguro? ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">CASO REAL</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">TE ROBARON EL AUTO. <span class="alert-text">¿QUÉ PASA AHORA?</span></h1>
+        <p class="sub-headline">Todo depende de qué cobertura tenés. Y de si hiciste las cosas bien al momento de contratar. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">LO QUE CUBRE</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:70px;">EL VALOR DE MERCADO AL <span>MOMENTO DEL ROBO</span></h1>
+        <p class="explanation">La aseguradora paga el valor de tu auto según tablas de referencia actualizadas. Si el valor asegurado está desactualizado, cobrás menos.</p>
+        <div class="highlight-box alert-box"><p>⚠️ RC Básica NO cubre robo de tu propio vehículo. Necesitás Terceros Completo o Todo Riesgo.</p></div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">PREVENCIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">MEJOR PREVENIR QUE <span>LAMENTAR</span></h1>
+        <p class="explanation">Revisá tu cobertura hoy. Si no incluye robo, lo añadimos. Si ya la tenés, verificamos que el valor asegurado sea el correcto.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#RoboAuto #SeguroContraRobo #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 18 (4 slides): Responsabilidad civil ==================== -->
+<div class="separator">⚫ CARRUSEL 18/60 — Responsabilidad civil: el seguro que todos necesitan y pocos entienden ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">¿SABÍAS QUE...?</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">PODÉS SER DEMANDADO <span>POR UN ACCIDENTE</span> EN TU PROPIA CASA</h1>
+        <p class="sub-headline">Un visitante que se resbala, un árbol que cae sobre el auto del vecino... La RC te protege. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">¿QUÉ ES LA RC?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:70px;">PROTEGE TU PATRIMONIO <span>ANTE DAÑOS A TERCEROS</span></h1>
+        <p class="explanation">Si causás un daño involuntario a otra persona o a sus bienes, la RC paga la indemnización. Sin ella, respondés con todo lo que tenés.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">CASOS COMUNES</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-triangle-exclamation fun"></i> Accidente de tránsito causado por vos</li>
+            <li><i class="fa-solid fa-triangle-exclamation fun"></i> Tu perro muerde a alguien</li>
+            <li><i class="fa-solid fa-triangle-exclamation fun"></i> Una gotera de tu depto daña el de abajo</li>
+            <li><i class="fa-solid fa-triangle-exclamation fun"></i> Un cliente se cae en tu comercio</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">PROTEGETE</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">UNA RC BIEN DISEÑADA <span>VALE ORO</span></h1>
+        <p class="explanation">Se puede incluir en tu seguro de hogar, auto o comercio. Te asesoro sin costo.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#ResponsabilidadCivil #ProtegéTuPatrimonio #Seguros</div>
+</div>
+
+<!-- ==================== CARRUSEL 19 (3 slides): Por qué cotizar online puede salirte caro ==================== -->
+<div class="separator">⚫ CARRUSEL 19/60 — Cotizar online sin asesoramiento: el error que se paga caro ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">CUIDADO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">COTIZAR ONLINE ESTÁ <span class="alert-text">BIEN</span>. CONTRATAR SIN ASESORAMIENTO, <span class="alert-text">NO</span></h1>
+        <p class="sub-headline">Los comparadores te muestran precios, pero no te explican qué estás comprando realmente.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">EL PROBLEMA</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-x-mark alert"></i> Las exclusiones no aparecen en el precio</li>
+            <li><i class="fa-solid fa-x-mark alert"></i> Podés elegir cobertura insuficiente sin saberlo</li>
+            <li><i class="fa-solid fa-x-mark alert"></i> Nadie te acompaña si tenés un siniestro</li>
+            <li><i class="fa-solid fa-x-mark alert"></i> Si hay un error en la declaración, el seguro puede no pagar</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">LA DIFERENCIA</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:70px;">COTIZÁ ONLINE, <span>CONTRÁTALO CONMIGO</span></h1>
+        <p class="explanation">Te ayudo a entender la letra chica, comparar coberturas reales y elegir lo que más te conviene. Sin costo adicional.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#CotizaOnline #AsesoramientoReal #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 20 (4 slides): Seguro para PyMEs ==================== -->
+<div class="separator">⚫ CARRUSEL 20/60 — PyME sin seguro: el riesgo que no podés permitirte ⚫</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text white">PARA PYMES</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white">EL 60% DE LAS PYMES QUE SUFREN UN SINIESTRO GRAVE <span>NO REABREN</span></h1>
+        <p class="sub-headline white">¿Tu negocio podría sobrevivir un incendio o robo sin seguro? Deslizá.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon white"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">RIESGOS</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li class="white"><i class="fa-solid fa-fire alert"></i> Incendio del establecimiento</li>
+            <li class="white"><i class="fa-solid fa-mask alert"></i> Robo de mercadería o equipos</li>
+            <li class="white"><i class="fa-solid fa-bolt alert"></i> Daño eléctrico a maquinaria clave</li>
+            <li class="white"><i class="fa-solid fa-gavel alert"></i> Demanda de un cliente o proveedor</li>
+            <li class="white"><i class="fa-solid fa-person-falling alert"></i> Accidente de un empleado sin ART</li>
+        </ul>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text white">SOLUCIÓN</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <h1 class="main-headline white" style="font-size:70px;">PROGRAMA INTEGRAL <span>DE SEGUROS PARA TU PYME</span></h1>
+        <p class="explanation white">Diseñamos un paquete que cubre todos los frentes: local, empleados, vehículos, responsabilidad civil y más.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">ACCIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white" style="font-size:72px;">PROTEGÉ LO QUE <span>CONSTRUISTE CON ESFUERZO</span></h1>
+        <p class="explanation white">Diagnóstico gratuito para tu PyME. Sin compromiso. Resultados concretos.</p>
+        <div class="cta-text white"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line white">#SegurosPyme #EmpresasArgentina #SanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 21 (3 slides): Granizo en San Juan ==================== -->
+<div class="separator">⚫ CARRUSEL 21/60 — Granizo en San Juan: ¿tu auto está protegido? ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">LOCAL</div></div>
+    <div class="slide-body">
+        <span class="emoji-big">🌨️</span>
+        <h1 class="main-headline" style="font-size:80px;">SAN JUAN Y EL <span>GRANIZO</span>: UNA COMBINACIÓN PELIGROSA</h1>
+        <p class="sub-headline">Cada temporada de lluvias deja cientos de autos dañados. ¿El tuyo tiene cobertura?</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">¿QUÉ CUBRE EL GRANIZO?</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Pólizas de Terceros Completo y Todo Riesgo incluyen granizo</li>
+            <li><i class="fa-solid fa-x-mark alert"></i> Responsabilidad Civil básica NO cubre granizo</li>
+            <li><i class="fa-solid fa-triangle-exclamation fun"></i> El daño debe declararse dentro de las 72hs</li>
+            <li><i class="fa-solid fa-check-circle"></i> Se puede incluir cobertura específica de granizo a bajo costo</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">ANTES DEL INVIERNO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">ACTUALIZÁ TU SEGURO <span>ANTES DE QUE LLUEVA</span></h1>
+        <p class="explanation">En San Juan el granizo es un riesgo real. Protegé tu auto con la cobertura correcta.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#GranizoSanJuan #SeguroGranizo #AutoSanJuan</div>
+</div>
+
+<!-- ==================== CARRUSEL 22 (4 slides): Auditoría de coberturas ==================== -->
+<div class="separator">⚫ CARRUSEL 22/60 — Auditoría de coberturas: ¿estás sobreasegurado o infraasegurado? ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">AUDITORÍA</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">PODÉS ESTAR <span>PAGANDO DE MÁS</span> O CUBIERTO DE MENOS</h1>
+        <p class="sub-headline">Ambos extremos son un problema. La auditoría de coberturas lo detecta y lo corrige. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">SOBREASEGURADO</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <h1 class="main-headline" style="font-size:70px;">PAGÁS MÁS <span class="alert-text">SIN NECESITARLO</span></h1>
+        <p class="explanation">Coberturas duplicadas, sumas aseguradas excesivas o cláusulas que no aplican a tu situación. Todo eso se puede optimizar y reducir el costo.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">INFRAASEGURADO</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:70px;">PAGÁS MENOS <span>PERO COBRÁS MENOS</span></h1>
+        <p class="explanation">Valor asegurado desactualizado, coberturas faltantes o franquicias muy altas. Cuando llega el siniestro, descubrís que el seguro no alcanza.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">LA SOLUCIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">AUDITORÍA <span>GRATIS</span> DE TUS PÓLIZAS</h1>
+        <p class="explanation">Mandame tus pólizas actuales. Las reviso y te digo exactamente qué cambiar, qué eliminar y qué agregar.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#AuditoríaDeSeguros #OptimizáTuPóliza #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 23 (3 slides): Seguro de accidentes personales ==================== -->
+<div class="separator">⚫ CARRUSEL 23/60 — Accidentes personales: el seguro más subestimado ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">POCO CONOCIDO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">EL SEGURO QUE CASI <span>NADIE TIENE</span> Y TODO EL MUNDO NECESITA</h1>
+        <p class="sub-headline">Los accidentes personales pueden dejarte sin poder trabajar. ¿Quién paga tus gastos mientras te recuperás?</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">¿QUÉ CUBRE?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Muerte accidental</li>
+            <li><i class="fa-solid fa-check-circle"></i> Incapacidad total o parcial por accidente</li>
+            <li><i class="fa-solid fa-check-circle"></i> Gastos médicos y de traslado</li>
+            <li><i class="fa-solid fa-check-circle green"></i> Renta diaria por internación</li>
+        </ul>
+        <div class="highlight-box fun-box"><p>💡 Ideal para cuentapropistas, monotributistas y quienes no tienen ART.</p></div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">COTIZÁ</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">DESDE POCOS PESOS AL MES, <span>CUBRÍS MUCHO</span></h1>
+        <p class="explanation">Es una de las coberturas más baratas y útiles. Te consigo opciones según tu actividad y presupuesto.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#AccidentesPersonales #SeguroIndividual #Monotributistas</div>
+</div>
+
+<!-- ==================== CARRUSEL 24 (4 slides): Estrategia de riesgos para empresas ==================== -->
+<div class="separator">⚫ CARRUSEL 24/60 — Estrategia de riesgo empresarial: más que un seguro ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">PARA EMPRESAS</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">TU EMPRESA NECESITA UNA <span>ESTRATEGIA</span>, NO SOLO UN SEGURO</h1>
+        <p class="sub-headline">Las empresas que gestionan bien sus riesgos sobreviven las crisis. Las que no, cierran. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">PASO 1: IDENTIFICAR</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:70px;"><span>¿CUÁLES SON</span> TUS RIESGOS REALES?</h1>
+        <p class="explanation">Cada negocio tiene riesgos únicos. Los analizamos: activos, empleados, operaciones, terceros, legales. No todos necesitan el mismo seguro.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">PASO 2: DISEÑAR</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <h1 class="main-headline" style="font-size:70px;">PROGRAMA <span>A MEDIDA</span> DE TU NEGOCIO</h1>
+        <p class="explanation">Negociamos con las mejores aseguradoras las condiciones más favorables. Cobertura máxima al menor costo posible.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">PASO 3: ACOMPAÑAR</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">SEGUIMIENTO <span>PERMANENTE</span> DE TU PROGRAMA</h1>
+        <p class="explanation">Revisamos tu cobertura ante cada cambio en tu negocio. Tu asesor de confianza, siempre disponible.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#EstrategiaDeRiesgo #GestiónEmpresarial #SegurosEmpresa</div>
+</div>
+
+<!-- ==================== CARRUSEL 25 (3 slides): Mitos sobre seguros ==================== -->
+<div class="separator">⚫ CARRUSEL 25/60 — 4 mitos sobre seguros que te cuestan dinero ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">MITOS</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline"><span class="alert-text">4 MITOS</span> SOBRE SEGUROS QUE TE CUESTAN DINERO</h1>
+        <p class="sub-headline">Creencias falsas que hacen que la gente pague mal o quede desprotegida. ¿Cuál creías vos?</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">MITOS 1 Y 2</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-x-mark alert"></i> <div><strong>"Todos los seguros cubren lo mismo"</strong> — Falso. Las exclusiones y coberturas varían enormemente entre compañías.</div></li>
+            <li><i class="fa-solid fa-x-mark alert"></i> <div><strong>"Si no uso el seguro, pierdo la plata"</strong> — Estás comprando tranquilidad. Si no lo usás, es porque no pasó nada malo. Eso es bueno.</div></li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">MITOS 3 Y 4</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-x-mark fun"></i> <div><strong>"El seguro más barato es suficiente"</strong> — Hasta que llega el siniestro y descubrís que no cubre lo que necesitabas.</div></li>
+            <li><i class="fa-solid fa-x-mark fun"></i> <div><strong>"No necesito asesor, lo contrato solo"</strong> — Sin análisis de riesgos, podés quedar con coberturas vacías. El asesoramiento no tiene costo adicional.</div></li>
+        </ul>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#MitosSeguros #EducaciónFinanciera #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 26 (4 slides): Flota vehicular ==================== -->
+<div class="separator">⚫ CARRUSEL 26/60 — Flota de vehículos: cómo asegurarla sin pagar de más ⚫</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text white">EMPRESAS CON FLOTA</div></div>
+    <div class="slide-body">
+        <span class="emoji-big">🚛</span>
+        <h1 class="main-headline white" style="font-size:75px;">¿TENÉS VEHÍCULOS A CARGO DE TU <span>EMPRESA?</span></h1>
+        <p class="sub-headline white">Asegurar una flota tiene reglas propias. Hacerlo mal puede costarte muchísimo. Deslizá.</p>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon white"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">ERRORES COMUNES</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li class="white"><i class="fa-solid fa-x-mark alert"></i> Asegurar cada auto por separado (más caro)</li>
+            <li class="white"><i class="fa-solid fa-x-mark alert"></i> No declarar el uso comercial del vehículo</li>
+            <li class="white"><i class="fa-solid fa-x-mark alert"></i> Valor asegurado desactualizado en vehículos de trabajo</li>
+            <li class="white"><i class="fa-solid fa-x-mark alert"></i> Sin cobertura de carga o mercadería transportada</li>
+        </ul>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text white">VENTAJAS DE LA FLOTA</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <ul class="checklist">
+            <li class="white"><i class="fa-solid fa-check-circle fun"></i> Precios más bajos por volumen</li>
+            <li class="white"><i class="fa-solid fa-check-circle fun"></i> Póliza única para todos los vehículos</li>
+            <li class="white"><i class="fa-solid fa-check-circle fun"></i> Coberturas personalizadas por tipo de vehículo</li>
+            <li class="white"><i class="fa-solid fa-check-circle fun"></i> Gestión centralizada de siniestros</li>
+        </ul>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide dark">
+    <div class="slide-header"><div class="tag-dot white"></div><div class="tag-text white">ACCIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline white" style="font-size:72px;">SEGURO DE FLOTA <span>OPTIMIZADO Y A MEDIDA</span></h1>
+        <p class="explanation white">Negociamos directamente con las aseguradoras para que tu flota esté bien protegida al mejor precio.</p>
+        <div class="cta-text white"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer dark-border"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3 class="white">Mario Cañadas Varela</h3><p class="white">Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line white">#SeguroFlota #TransporteEmpresa #SegurosEmpresa</div>
+</div>
+
+<!-- ==================== CARRUSEL 27 (3 slides): Por qué elegir un asesor local ==================== -->
+<div class="separator">⚫ CARRUSEL 27/60 — Por qué importa trabajar con un asesor de San Juan ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">LOCAL</div></div>
+    <div class="slide-body">
+        <span class="emoji-big">📍</span>
+        <h1 class="main-headline" style="font-size:80px;">TRABAJAR CON ALGUIEN DE <span>SAN JUAN</span> MARCA LA DIFERENCIA</h1>
+        <p class="sub-headline">El contexto local importa. Deslizá y entendé por qué.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">LAS VENTAJAS</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Conozco los riesgos específicos de la región (granizo, sismicidad)</li>
+            <li><i class="fa-solid fa-check-circle"></i> Accesible para reuniones presenciales sin problema</li>
+            <li><i class="fa-solid fa-check-circle"></i> Red local de contactos para resolver siniestros rápido</li>
+            <li><i class="fa-solid fa-check-circle green"></i> Atención personalizada, no un call center</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">CONTACTO DIRECTO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">MARIO CAÑADAS VARELA <span>SIEMPRE DISPONIBLE</span></h1>
+        <p class="explanation">San Juan, Argentina. Matrícula SSN N° 101290. Atención personalizada para vos y tu familia.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#AsesorSanJuan #SegurosLocales #SanJuanArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 28 (4 slides): Diferencia entre prima y cobertura ==================== -->
+<div class="separator">⚫ CARRUSEL 28/60 — Prima vs. cobertura: lo que realmente importa ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">EDUCACIÓN</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">NO ELIJAS UN SEGURO POR EL <span>PRECIO</span>. ELEGILO POR LA <span>COBERTURA</span></h1>
+        <p class="sub-headline">La prima es lo que pagás. La cobertura es lo que recibís cuando la necesitás. Son cosas muy distintas.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">LA PRIMA</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:70px;">LA PRIMA ES TU <span>CUOTA MENSUAL</span></h1>
+        <p class="explanation">El importe que pagás todos los meses para mantener vigente el seguro. Varía según el riesgo, la cobertura y la aseguradora. Cuanto más baja, más probable que haya algo que no cubre.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">LA COBERTURA</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <h1 class="main-headline" style="font-size:70px;">LA COBERTURA ES LO QUE IMPORTA <span>CUANDO LA COSA SE PONE FEA</span></h1>
+        <p class="explanation">¿Cubre robo parcial? ¿Granizo? ¿Daños propios? ¿Defensa jurídica? Eso es lo que define si tu seguro vale o no.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">MI ROL</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">EQUILIBRIO PERFECTO ENTRE <span>PRECIO Y PROTECCIÓN</span></h1>
+        <p class="explanation">Mi trabajo es encontrar la mejor relación precio-cobertura para tu situación específica. No la más barata ni la más cara. La correcta.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#PrimaVsCobertura #EducaciónFinanciera #Seguros</div>
+</div>
+
+<!-- ==================== CARRUSEL 29 (3 slides): Seguro de incendio ==================== -->
+<div class="separator">⚫ CARRUSEL 29/60 — Incendio: el siniestro más devastador y más cubierto ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">INCENDIO</div></div>
+    <div class="slide-body">
+        <span class="emoji-big">🔥</span>
+        <h1 class="main-headline" style="font-size:80px;">UN INCENDIO DESTRUYE EN HORAS LO QUE <span>CONSTRUISTE EN AÑOS</span></h1>
+        <p class="sub-headline">¿Tenés cobertura contra incendio? ¿Sabés qué tan amplia es? Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">¿QUÉ CUBRE?</div></div>
+    <div class="slide-body">
+        <div class="deco-line alert"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Incendio total del inmueble o local</li>
+            <li><i class="fa-solid fa-check-circle"></i> Daños por humo y agua de extinción</li>
+            <li><i class="fa-solid fa-check-circle"></i> Explosión e implosión</li>
+            <li><i class="fa-solid fa-check-circle green"></i> Gastos de demolición y remoción de escombros</li>
+            <li><i class="fa-solid fa-check-circle green"></i> Lucro cesante (en pólizas empresariales)</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">VERIFICÁ</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">¿TU VALOR ASEGURADO CUBRE EL <span>COSTO DE RECONSTRUIR</span>?</h1>
+        <p class="explanation">Con la inflación, el costo de materiales aumentó mucho. Revisá que tu suma asegurada esté actualizada.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#SeguroIncendio #ProtegeéTuHogar #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 30 (4 slides): Proceso de asesoramiento ==================== -->
+<div class="separator">⚫ CARRUSEL 30/60 — Así trabajo yo: el proceso de asesoramiento ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">MI PROCESO</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">ASÍ ES COMO <span>TRABAJO PARA VOS</span></h1>
+        <p class="sub-headline">No vendo seguros. Diseño soluciones de protección. Conocé mi proceso en 4 pasos.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">PASO 1: ESCUCHAR</div></div>
+    <div class="slide-body">
+        <div class="big-number">1</div>
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:72px;">PRIMERO <span>ENTIENDO TU SITUACIÓN</span></h1>
+        <p class="explanation">¿Qué tenés? ¿Qué riesgos enfrentás? ¿Cuál es tu presupuesto? Cada persona es diferente y merece un análisis propio.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">PASOS 2 Y 3</div></div>
+    <div class="slide-body">
+        <div class="steps">
+            <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Analizo y comparo</strong> — Evalúo las mejores opciones del mercado para tu caso puntual.</div></div>
+            <div class="step"><div class="step-num fun">3</div><div class="step-text"><strong>Te explico sin letra chica</strong> — Te presento las opciones en lenguaje claro. Vos decidís con información real.</div></div>
+        </div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">PASO 4: ACOMPAÑAR</div></div>
+    <div class="slide-body">
+        <div class="big-number">4</div>
+        <h1 class="main-headline" style="font-size:72px;">ESTOY CON VOS <span>DESPUÉS TAMBIÉN</span></h1>
+        <p class="explanation">Siniestros, cambios, renovaciones. No desaparezco después de la venta. Ese es mi diferencial.</p>
+        <div class="cta-text green"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#AsesoramientoPersonalizado #ProcesoDeAsesoramiento #SegurosArgentina</div>
+</div>
+
+<!-- ==================== CARRUSEL 31 (3 slides): Seguro para alquileres ==================== -->
+<div class="separator">⚫ CARRUSEL 31/60 — ¿Alquilás tu propiedad? Protegete como propietario ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">PROPIETARIOS</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">SOS PROPIETARIO Y <span>ALQUILÁS</span>. ¿TENÉS ESTOS RIESGOS CUBIERTOS?</h1>
+        <p class="sub-headline">Un inquilino que no paga, un daño al inmueble, una demanda. Todo puede pasarte. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">LO QUE NECESITÁS</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle"></i> Seguro del inmueble actualizado (incendio, daños)</li>
+            <li><i class="fa-solid fa-check-circle"></i> Caución de alquiler para garantizar el cobro</li>
+            <li><i class="fa-solid fa-check-circle"></i> RC para daños que sucedan en tu propiedad</li>
+            <li><i class="fa-solid fa-check-circle green"></i> Cobertura de daños al inmueble por el inquilino</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">CONSULTAME</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline" style="font-size:72px;">ALQUILÁ <span>SIN DOLORES DE CABEZA</span></h1>
+        <p class="explanation">Diseñamos un paquete de coberturas para que tu inversión inmobiliaria esté protegida en todos los frentes.</p>
+        <div class="cta-text"><i class="fa-brands fa-whatsapp"></i> 264 415-3750</div>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+    <div class="hashtag-line">#PropietarioAlquiler #InversiónInmobiliaria #SegurosHogar</div>
+</div>
+
+<!-- ==================== CARRUSEL 32 (4 slides): Matrícula SSN ==================== -->
+<div class="separator">⚫ CARRUSEL 32/60 — ¿Por qué importa la matrícula SSN? ⚫</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot alert"></div><div class="tag-text">IMPORTANTE</div></div>
+    <div class="slide-body">
+        <h1 class="main-headline">ANTES DE CONTRATAR UN SEGURO, <span class="alert-text">VERIFICÁ ESTO</span></h1>
+        <p class="sub-headline">La matrícula de Productor Asesor es la garantía de que estás trabajando con un profesional habilitado por el Estado. Deslizá.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div><div class="swipe-icon"><i class="fa-solid fa-arrow-right"></i></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot"></div><div class="tag-text">¿QUÉ ES LA SSN?</div></div>
+    <div class="slide-body">
+        <div class="deco-line"></div>
+        <h1 class="main-headline" style="font-size:70px;">SUPERINTENDENCIA DE SEGUROS <span>DE LA NACIÓN</span></h1>
+        <p class="explanation">Es el organismo del Estado que regula a las aseguradoras y a los Productores Asesores en Argentina. Quien tiene matrícula SSN está habilitado, regulado y es responsable legalmente.</p>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot fun"></div><div class="tag-text">¿QUÉ TE GARANTIZA?</div></div>
+    <div class="slide-body">
+        <div class="deco-line fun"></div>
+        <ul class="checklist">
+            <li><i class="fa-solid fa-check-circle fun"></i> Profesional habilitado para asesorarte</li>
+            <li><i class="fa-solid fa-check-circle fun"></i> Responsabilidad civil profesional activa</li>
+            <li><i class="fa-solid fa-check-circle fun"></i> Cumplimiento de normativa vigente</li>
+            <li><i class="fa-solid fa-check-circle fun"></i> Podés verificarlo en la web de la SSN</li>
+        </ul>
+    </div>
+    <div class="slide-footer"><div class="author-box"><div class="avatar"></div><div class="author-info"><h3>Mario Cañadas Varela</h3><p>Productor Asesor · SSN 101290</p></div></div></div>
+</div>
+<div class="slide">
+    <div class="slide-header"><div class="tag-dot green"></div><div class="tag-text">MI MATRÍCULA</div></div>
+    <div class="slide-body">
+       
